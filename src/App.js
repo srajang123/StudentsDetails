@@ -15,17 +15,17 @@ export default class App extends Component
         studs:[{
           name:'Srajan Gupta',
           Branch:'CSE',
-          roll:1702910167
+          roll:1234567890
         },
       {
-        name:'Saloni Singh',
+        name:'Oliver Queen',
         Branch:'CSE',
-        roll:1702910135
+        roll:1234567891
       },
       {
-        name:'Sanidhya Panwar' ,
-        Branch:'CSE',
-        roll:1702910136
+        name:'Barry Allen' ,
+        Branch:'IT',
+        roll:1234567892
       }],
       temp:{
         name: ' ',
@@ -43,17 +43,17 @@ export default class App extends Component
         studs:[{
           name:'Srajan Gupta',
           Branch:'CSE',
-          roll:1702910167
+          roll:1234567890
         },
       {
-        name:'Saloni Singh',
+        name:'Oliver Queen',
         Branch:'CSE',
-        roll:1702910135
+        roll:1234567891
       },
       {
-        name:'Sanidhya Panwar' ,
-        Branch:'CSE',
-        roll:1702910136
+        name:'Barry Allen' ,
+        Branch:'IT',
+        roll:1234567892
       }],
       temp:{
         name: '',
