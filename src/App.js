@@ -1,26 +1,81 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Form from './Components/Form';
+import List from './Components/List';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends Component
+{
+    componentDidMount=()=>{
+      document.title='Students By Srajan';
+      let data=localStorage.getItem('studs');
+      this.setState(data!=null?JSON.parse(data):
+      {
+        studs:[{
+          name:'Srajan Gupta',
+          Branch:'CSE',
+          roll:1702910167
+        },
+      {
+        name:'Saloni Singh',
+        Branch:'CSE',
+        roll:1702910135
+      },
+      {
+        name:'Sanidhya Panwar' ,
+        Branch:'CSE',
+        roll:1702910136
+      }],
+      temp:{
+        name: ' ',
+        Branch: ' ',
+        roll: 0
+      }
+      }
+      )
+    }
+    constructor(props)
+    {
+      super(props);
+      this.state=
+      {
+        studs:[{
+          name:'Srajan Gupta',
+          Branch:'CSE',
+          roll:1702910167
+        },
+      {
+        name:'Saloni Singh',
+        Branch:'CSE',
+        roll:1702910135
+      },
+      {
+        name:'Sanidhya Panwar' ,
+        Branch:'CSE',
+        roll:1702910136
+      }],
+      temp:{
+        name: '',
+        Branch: '',
+        roll: null
+      }
+      }
+    }
 
-export default App;
+    addStudent=(data)=>{
+      this.setState({
+        studs:[...this.state.studs,data]
+      },
+      ()=>localStorage.setItem('studs',JSON.stringify(this.state)));
+      console.log(this.state);
+    }
+
+    render=()=>
+    <div>
+      <Header></Header>
+      <Form callback={this.addStudent}/>
+      <List studs={this.state.studs}></List>
+      <Footer></Footer>
+    </div>
+}
